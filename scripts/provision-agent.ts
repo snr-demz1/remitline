@@ -85,7 +85,7 @@ async function main() {
   console.log(`Agent created: ${agent.agentId}`);
   console.log(`Set NEXT_PUBLIC_AGENT_ID=${agent.agentId}`);
   console.log(`Tool base URL for dashboard/API setup: ${baseUrl}`);
-  console.log("Important: the current SDK's typed surface exposes webhook tool configuration through API integrations, not a generic tools.create call. Create the three GET webhook tools in the ElevenLabs dashboard/API integration layer using:");
+  console.log("Important: configure the three GET webhook tools in the ElevenLabs dashboard/API integration layer using:");
   console.log(`  ${baseUrl}/api/tools/rate?currency={currency}`);
   console.log(`  ${baseUrl}/api/tools/transfer-status?reference={reference}`);
   console.log(`  ${baseUrl}/api/tools/entitlements?tier={tier}`);
