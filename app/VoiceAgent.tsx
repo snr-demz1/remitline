@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import Script from "next/script";
+import { createElement, useState } from "react";
 import { ConversationProvider, useConversation, useConversationClientTool } from "@elevenlabs/react";
 
 type Line = { role: string; text: string };
@@ -73,7 +74,9 @@ function Panel({ agentId }: { agentId: string }) {
   }
 
   return (
-    <main className="min-h-screen overflow-hidden px-5 py-5 sm:px-8 lg:px-12">
+    <>
+      <Script src="https://unpkg.com/@elevenlabs/convai-widget-embed" strategy="afterInteractive" />
+      <main className="min-h-screen overflow-hidden px-5 py-5 sm:px-8 lg:px-12">
       <nav className="mx-auto flex max-w-7xl items-center justify-between border-b border-[var(--line)] pb-5">
         <div className="flex items-center gap-3">
           <span className="grid h-9 w-9 place-items-center rounded-full bg-[var(--green)] text-sm font-black text-white">R</span>
@@ -131,7 +134,7 @@ function Panel({ agentId }: { agentId: string }) {
           )}
         </div>
 
-        <div className="relative rounded-[2rem] border border-[var(--line)] bg-[var(--card)] p-4 shadow-[0_24px_70px_rgba(35,58,49,0.1)] sm:p-6">
+        <div className="relative rounded-[2rem] border border-[var(--line)] bg-[var(--card)] p-4 shadow-[0_24px_70px_rgba(35,58,49,0.1)] sm:p-6"><div className="mb-4 rounded-2xl border border-[var(--line)] bg-white p-4"><p className="text-xs font-black uppercase tracking-[0.16em] text-[var(--muted)]">Official ElevenLabs widget</p><p className="mt-1 text-xs leading-5 text-[var(--muted)]">Fallback voice control for the live demo.</p>{createElement("elevenlabs-convai", { "agent-id": agentId })}</div>
           <div className="absolute -right-4 -top-5 grid h-20 w-20 rotate-6 place-items-center rounded-2xl bg-[var(--yellow)] text-center text-[10px] font-black uppercase leading-3 tracking-wider text-[var(--ink)] shadow-lg">
             Facts<br />first
           </div>
@@ -181,6 +184,7 @@ function Panel({ agentId }: { agentId: string }) {
         </div>
       </section>
     </main>
+    </>
   );
 }
 
