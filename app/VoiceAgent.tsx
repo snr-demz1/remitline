@@ -54,7 +54,7 @@ function Panel({ agentId }: { agentId: string }) {
         throw new Error("Microphone access requires HTTPS or localhost.");
       }
       await navigator.mediaDevices.getUserMedia({ audio: true });
-      await conversation.startSession({ agentId });
+      await conversation.startSession({ agentId, connectionType: "websocket" });
     } catch (e) {
       setError(e instanceof Error ? e.message : "Failed to establish conversation session.");
     }
