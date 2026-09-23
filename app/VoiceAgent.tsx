@@ -55,8 +55,11 @@ function Panel({ agentId }: { agentId: string }) {
       }
       await navigator.mediaDevices.getUserMedia({ audio: true });
       await conversation.startSession({ agentId, connectionType: "websocket" });
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Failed to establish conversation session.");
+        } catch (e) {
+      const detail = e instanceof Error ? e.message : "Failed to establish conversation session.";
+      const closeCode = (e as { closeCode?: number })?.closeCode;
+      const closeReason = (e as { closeReason?: string })?.closeReason;
+      setError(closeCode ? `${detail} (code ${closeCode}${closeReason ? `: ${closeReason}` : ""})` : detail);
     }
   }
 
