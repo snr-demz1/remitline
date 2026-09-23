@@ -1,0 +1,8 @@
+[
+  { "currency": "INR", "rate": 22.67, "lastUpdated": "2026-09-20T10:15:00.000Z" },
+  { "currency": "PKR", "rate": 75.42, "lastUpdated": "2026-09-20T10:15:00.000Z" },
+  { "currency": "BDT", "rate": 32.91, "lastUpdated": "2026-09-20T10:15:00.000Z" },
+  { "currency": "PHP", "rate": 15.84, "lastUpdated": "2026-09-20T10:15:00.000Z" },
+  { "currency": "NPR", "rate": 36.15, "lastUpdated": "2026-09-20T10:15:00.000Z" },
+  { "currency": "LKR", "rate": 81.73, "lastUpdated": "2026-09-20T10:15:00.000Z" }
+]

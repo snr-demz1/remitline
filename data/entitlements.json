@@ -1,0 +1,29 @@
+[
+  {
+    "tier": "everyday",
+    "name": "Everyday Salary Card",
+    "includes": [
+      "Free domestic ATM withdrawals at participating ATMs",
+      "Cardless cash access up to AED 1,000 per day",
+      "One replacement card per calendar year at no charge"
+    ]
+  },
+  {
+    "tier": "plus",
+    "name": "Salary Card Plus",
+    "includes": [
+      "Free domestic ATM withdrawals at participating ATMs",
+      "Cardless cash access up to AED 2,000 per day",
+      "Two replacement cards per calendar year at no charge"
+    ]
+  },
+  {
+    "tier": "basic",
+    "name": "Basic Salary Card",
+    "includes": [
+      "Two free domestic ATM withdrawals each month",
+      "Cardless cash access up to AED 500 per day",
+      "Replacement card fee of AED 25"
+    ]
+  }
+]
