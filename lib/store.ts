@@ -17,9 +17,14 @@ async function redis(command: string[]) {
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
   if (!url || !token) return null;
-  const response = await fetch(url, { method: "POST", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" }, body: JSON.stringify(command), cache: "no-store" });
-  if (!response.ok) throw new Error("Storage service unavailable");
-  return (await response.json() as { result: string | null }).result;
+  try {
+    const response = await fetch(url, { method: "POST", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" }, body: JSON.stringify(command), cache: "no-store" });
+    if (!response.ok) return null;
+    return (await response.json() as { result: string | null }).result;
+  } catch {
+    // Demo fallback: if optional Redis is unavailable, continue with seeded local data.
+    return null;
+  }
 }
 
 async function read<T>(key: keyof typeof memory, seed: T): Promise<T> {
